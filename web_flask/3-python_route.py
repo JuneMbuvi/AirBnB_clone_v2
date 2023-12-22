@@ -24,5 +24,13 @@ def c_func(text):
     return f'C {escape(text.replace("_", " "))}'
 
 
+@app.route("/python/<text>", strict_slashes=False)
+@app.route("/python", strict_slashes=False)
+@app.route("/python/", strict_slashes=False)
+def python_func(text="is cool"):
+    """displays python"""
+    return f'Python {escape(text.replace("_", " "))}'
+
+
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)
